@@ -13,8 +13,21 @@
         </div>
         <div class=" col-md-6 contact_form-container">
           <div class="contact_box">
-            <form action="">
-              <input type="text" placeholder="Your Name">
+            {{-- <form action=""> --}}
+              {!! Form::open([
+                'url' => '/contact',
+                'method' => 'post'
+                ]) !!}
+                {{-- @csrf --}}
+              {{-- <input type="text" placeholder="Your Name"> --}}
+              {!! Form::text('name', '', [
+                'name' => "name",
+                'placeholder' => "Your Name"
+              ]) !!}
+              {!! Form::select('country', ['1' => 'Nepal','2' =>  'Inda', '3' => 'Bangladesh', '4' => 'Bhutan'],'2', [
+                'name' => "name",
+                'placeholder' => "Your Country"
+              ]) !!}
               <input type="email" placeholder="Email">
               <input type="text" placeholder="Phone Number">
               <input type="text" placeholder="Message">
@@ -23,7 +36,8 @@
                   Submit
                 </button>
               </div>
-            </form>
+            {{-- </form> --}}
+            {!! Form::close() !!}
           </div>
         </div>
       </div>
